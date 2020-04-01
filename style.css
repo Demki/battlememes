@@ -1,5 +1,5 @@
 body { 
-  background-color: black;
+  background-color: rgb(17,15,25);
   padding: 0;
   margin: 0;
   display: flex;
@@ -10,5 +10,6 @@ body {
 }
 
 canvas {
+  background-color: black;
   border: 2px outset grey;
 }
