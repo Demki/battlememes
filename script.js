@@ -159,7 +159,7 @@ function drawMarks(context) {
     if (value !== 0) {
       let [x, y] = JSON.parse(xy);
       context.fillStyle = colors[value];
-      context.fillRect(board1Offsets.x + x * 30 + 1, board1Offsets.y + y * 30 + 1, 28, 28);
+      context.fillRect(board1Offsets.x + x * 30 + 2, board1Offsets.y + y * 30 + 2, 26, 26);
     }
   }
 
@@ -167,7 +167,7 @@ function drawMarks(context) {
     if (value !== 0) {
       let [x, y] = JSON.parse(xy);
       context.fillStyle = colors[value];
-      context.fillRect(board2Offsets.x + x * 30 + 1, board2Offsets.y + y * 30 + 1, 28, 28);
+      context.fillRect(board2Offsets.x + x * 30 + 2, board2Offsets.y + y * 30 + 2, 26, 26);
     }
   }
 }
