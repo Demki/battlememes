@@ -34,11 +34,11 @@ function frame(context, canvas) {
 
 const colors = {
   min: -2, max: 3,
-  [-2]: "green",
-  [-1]: "blue",
+  [-2]: "yellowgreen",
+  [-1]: "#7070FF",
   [1]: "lightgrey",
   [2]: "red",
-  [3]: "purple",
+  [3]: "#420690",
 }
 
 const marks = {
