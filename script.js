@@ -120,14 +120,14 @@ function drawBoards(context) {
   context.fillStyle = "black";
   for (let i = 0; i < 10; ++i) {
     const t = context.measureText(i + 1);
-    context.fillText(i + 1, board1Offsets.x + (i + 1) * 30 + 15 - t.width / 2, board1Offsets.y + 15 + t.actualBoundingBoxAscent / 2);
-    context.fillText(i + 1, board2Offsets.x + (i + 1) * 30 + 15 - t.width / 2, board2Offsets.y + 15 + t.actualBoundingBoxAscent / 2);
+    context.fillText(i + 1, board1Offsets.x + 15 - t.width / 2, board1Offsets.y + (i + 1) * 30 + 15 + t.actualBoundingBoxAscent / 2);
+    context.fillText(i + 1, board2Offsets.x + 15 - t.width / 2, board2Offsets.y + (i + 1) * 30 + 15 + t.actualBoundingBoxAscent / 2);
   }
   for (let i = 0; i < 10; ++i) {
     const text = String.fromCharCode("A".charCodeAt(0) + i);
     const t = context.measureText(text);
-    context.fillText(text, board1Offsets.x + 15 - t.width / 2, board1Offsets.y + (i + 1) * 30 + 15 + t.actualBoundingBoxAscent / 2);
-    context.fillText(text, board2Offsets.x + 15 - t.width / 2, board2Offsets.y + (i + 1) * 30 + 15 + t.actualBoundingBoxAscent / 2);
+    context.fillText(text, board1Offsets.x + (i + 1) * 30 + 15 - t.width / 2, board1Offsets.y + 15 + t.actualBoundingBoxAscent / 2);
+    context.fillText(text, board2Offsets.x + (i + 1) * 30 + 15 - t.width / 2, board2Offsets.y + 15 + t.actualBoundingBoxAscent / 2);
   }
 
   switch (mousePos.board) {
