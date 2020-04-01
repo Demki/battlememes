@@ -1,7 +1,7 @@
 window.addEventListener("load", () => {
   const canvas = document.querySelector("canvas");
   const context = canvas.getContext("2d");
-  canvas.addEventListener("mousemove", mouseMoved);
+  canvas.addEventListener("mousemove", mouseMoved(canvas));
   canvas.addEventListener("click", mark(1));
   canvas.addEventListener("contextmenu", (ev) => { mark(-1)(ev); ev.preventDefault(); });
   window.requestAnimationFrame(frame(context, canvas));
@@ -52,24 +52,27 @@ let mousePos = {
 /**
  * @param {MouseEvent} ev
  */
-function mouseMoved(ev) {
-  const { offsetX, offsetY } = ev;
-  if (board1Offsets.x <= offsetX && offsetX <= board1Offsets.x + 330
-    && board1Offsets.y <= offsetY && offsetY <= board1Offsets.y + 330) {
-    mousePos.board = 1;
-    mousePos.x = Math.floor((offsetX - board1Offsets.x) / 30);
-    mousePos.y = Math.floor((offsetY - board1Offsets.y) / 30);
+function mouseMoved(canvas) {
+  return (ev) => {
+    const { offsetX, offsetY } = ev;
+    const x = canvas.width * offsetX / canvas.clientWidth;
+    const y = canvas.height * offsetY / canvas.clientHeight;
+  if (board1Offsets.x <= x && x <= board1Offsets.x + 330
+      && board1Offsets.y <= y && y <= board1Offsets.y + 330) {
+      mousePos.board = 1;
+      mousePos.x = Math.floor((x - board1Offsets.x) / 30);
+      mousePos.y = Math.floor((y - board1Offsets.y) / 30);
+    }
+    else if (board2Offsets.x <= x && x <= board2Offsets.x + 330
+      && board2Offsets.y <= y && y <= board2Offsets.y + 330) {
+      mousePos.board = 2;
+      mousePos.x = Math.floor((x - board2Offsets.x) / 30);
+      mousePos.y = Math.floor((y - board2Offsets.y) / 30);
+    }
+    else {
+      mousePos.board = 0;
+    }
   }
-  else if (board2Offsets.x <= offsetX && offsetX <= board2Offsets.x + 330
-    && board2Offsets.y <= offsetY && offsetY <= board2Offsets.y + 330) {
-    mousePos.board = 2;
-    mousePos.x = Math.floor((offsetX - board2Offsets.x) / 30);
-    mousePos.y = Math.floor((offsetY - board2Offsets.y) / 30);
-  }
-  else {
-    mousePos.board = 0;
-  }
-  console.log(mousePos);
 }
 
 const board1Offsets = { x: 25, y: 30 }
