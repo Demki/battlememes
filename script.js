@@ -60,14 +60,14 @@ function mouseMoved(canvas) {
   if (board1Offsets.x <= x && x <= board1Offsets.x + 330
       && board1Offsets.y <= y && y <= board1Offsets.y + 330) {
       mousePos.board = 1;
-      mousePos.x = Math.floor((x - board1Offsets.x) / 30);
-      mousePos.y = Math.floor((y - board1Offsets.y) / 30);
+      mousePos.x = Math.min(Math.floor((x - board1Offsets.x) / 30), 10);
+      mousePos.y = Math.min(Math.floor((y - board1Offsets.y) / 30), 10);
     }
     else if (board2Offsets.x <= x && x <= board2Offsets.x + 330
       && board2Offsets.y <= y && y <= board2Offsets.y + 330) {
       mousePos.board = 2;
-      mousePos.x = Math.floor((x - board2Offsets.x) / 30);
-      mousePos.y = Math.floor((y - board2Offsets.y) / 30);
+      mousePos.x = Math.min(Math.floor((x - board2Offsets.x) / 30), 10);
+      mousePos.y = Math.min(Math.floor((y - board2Offsets.y) / 30), 10);
     }
     else {
       mousePos.board = 0;
