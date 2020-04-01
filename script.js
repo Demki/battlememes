@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
 
 function mark(d) {
   return (ev) => {
-    if (mousePos.board > 0) {
+    if (mousePos.board > 0 && mousePos.x > 0 && mousePos.y > 0) {
       const { x, y } = mousePos;
       const key = JSON.stringify([x, y]);
       const board = marks.boards[mousePos.board - 1];
