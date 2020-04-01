@@ -83,11 +83,12 @@ const board2Offsets = { x: 445, y: 30 }
  * @param {HTMLCanvasElement} canvas 
  */
 function redraw(context, canvas) {
+  const transform = context.getTransform();
   context.translate(0.5, 0.5);
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawBoards(context);
   drawMarks(context);
-  context.resetTransform();
+  context.setTransform(transform);
 }
 
 /** 
