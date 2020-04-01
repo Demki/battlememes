@@ -45,8 +45,6 @@ const marks = {
   boards: [new Map(), new Map()]
 }
 
-marks.boards[0].set(JSON.stringify([3, 3]), 1);
-
 let mousePos = {
   board: 0, x: 0, y: 0
 };
